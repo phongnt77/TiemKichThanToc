@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
     private bool isGameStarted = false; // Khai báo và gán giá trị ban đầu
     private bool isGameOver = false;    // Khai báo và gán giá trị ban đầu
 
+    [Header("Boss Settings")]
+    public GameObject bossPrefab;
+    public Transform bossSpawnPoint;
+
+    private bool bossSpawned = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -74,6 +80,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGameButton(true);
+        }
+
+        if (!bossSpawned && GetScore() >= 10)
+        {
+            Debug.Log("Spawning boss at score: " + GetScore());
+            Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
+            bossSpawned = true;
         }
     }
 

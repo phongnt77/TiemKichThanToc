@@ -3,27 +3,23 @@
   "WorkspaceRootPath": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|d:\\fptu\\semeter7\\1_pru212\\tiem_kich_than_toc\\assets\\scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|d:\\fptu\\semeter7\\1_pru212\\tiem_kich_than_toc\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\assets\\scripts\\missilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|d:\\fptu\\semeter7\\1_pru212\\tiem_kich_than_toc\\assets\\scripts\\missilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\missilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|d:\\fptu\\semeter7\\1_pru212\\tiem_kich_than_toc\\assets\\scripts\\bossmissilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bossmissilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|d:\\fptu\\semeter7\\1_pru212\\tiem_kich_than_toc\\assets\\scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|d:\\fptu\\semeter7\\1_pru212\\tiem_kich_than_toc\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{830AB31B-C464-DDFF-C52B-5B80295496DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -36,19 +32,6 @@
           "DockedWidth": 200,
           "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BossMissileController.cs",
-              "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\BossMissileController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BossMissileController.cs",
-              "ToolTip": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\BossMissileController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BossMissileController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T09:43:14.263Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -63,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MissileController.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\MissileController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MissileController.cs",
@@ -76,33 +59,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
               "ToolTip": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAE8AAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-08T08:58:34.73Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "BossController.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\BossController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BossController.cs",
               "ToolTip": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\BossController.cs",
               "RelativeToolTip": "Assets\\Scripts\\BossController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-08T08:57:47.526Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
@@ -110,7 +93,8 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T08:41:46.117Z"
+              "WhenOpened": "2025-06-08T08:41:46.117Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -120,7 +104,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyController.cs",
               "ToolTip": "D:\\FPTU\\Semeter7\\1_PRU212\\Tiem_Kich_Than_Toc\\Assets\\Scripts\\EnemyController.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemyController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-05T06:00:47.859Z",
               "EditorCaption": ""
