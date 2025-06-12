@@ -13,8 +13,18 @@ public class MissileController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject); // Hủy Enemy (EnemyController sẽ tạo Explosion)
-            Destroy(gameObject); // Hủy Missile
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            // Nếu còn enemy thì chưa cho bắn boss
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (enemies.Length == 0)
+            {
+                collision.gameObject.GetComponent<BossController>()?.TakeDamage(50); // 50 là sát thương tạm
+                Destroy(gameObject);
+            }
         }
     }
 }
