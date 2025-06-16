@@ -135,8 +135,8 @@ TextureImporter:
         serializedVersion: 2
         x: 193
         y: 63
-        width: 64
-        height: 66
+        width: 63
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,7 +158,7 @@ TextureImporter:
         x: 256
         y: 160
         width: 128
-        height: 95
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,9 +177,9 @@ TextureImporter:
       name: CelestialObjects_2
       rect:
         serializedVersion: 2
-        x: 255
+        x: 256
         y: 32
-        width: 129
+        width: 128
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -202,7 +202,7 @@ TextureImporter:
         x: 0
         y: 32
         width: 32
-        height: 33
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,7 +245,7 @@ TextureImporter:
         serializedVersion: 2
         x: 159
         y: 32
-        width: 65
+        width: 33
         height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -309,10 +309,10 @@ TextureImporter:
       name: CelestialObjects_8
       rect:
         serializedVersion: 2
-        x: 221
-        y: 20
-        width: 36
-        height: 43
+        x: 224
+        y: 33
+        width: 33
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,7 +334,7 @@ TextureImporter:
         x: 226
         y: 1
         width: 29
-        height: 28
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -375,9 +375,9 @@ TextureImporter:
       name: CelestialObjects_11
       rect:
         serializedVersion: 2
-        x: 130
+        x: 128
         y: 63
-        width: 64
+        width: 66
         height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -420,9 +420,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 193
+        y: 192
         width: 64
-        height: 63
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -443,7 +443,7 @@ TextureImporter:
         serializedVersion: 2
         x: 192
         y: 192
-        width: 65
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -486,9 +486,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 129
-        width: 63
-        height: 63
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -507,10 +507,10 @@ TextureImporter:
       name: CelestialObjects_17
       rect:
         serializedVersion: 2
-        x: 191
+        x: 192
         y: 128
         width: 64
-        height: 63
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,10 +529,10 @@ TextureImporter:
       name: CelestialObjects_18
       rect:
         serializedVersion: 2
-        x: 65
-        y: 65
+        x: 64
+        y: 64
         width: 64
-        height: 63
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -552,9 +552,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 65
-        width: 65
-        height: 63
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -597,7 +597,7 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 128
-        width: 63
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -617,10 +617,10 @@ TextureImporter:
       name: CelestialObjects_22
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 32
-        width: 29
-        height: 33
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -639,9 +639,9 @@ TextureImporter:
       name: CelestialObjects_23
       rect:
         serializedVersion: 2
-        x: 31
+        x: 32
         y: 31
-        width: 33
+        width: 32
         height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -661,9 +661,9 @@ TextureImporter:
       name: CelestialObjects_24
       rect:
         serializedVersion: 2
-        x: 94
+        x: 96
         y: 30
-        width: 34
+        width: 32
         height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -688,7 +688,7 @@ TextureImporter:
         width: 34
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -710,7 +710,7 @@ TextureImporter:
         width: 29
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -732,7 +732,7 @@ TextureImporter:
         width: 17
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -749,9 +749,31 @@ TextureImporter:
       name: CelestialObjects_28
       rect:
         serializedVersion: 2
-        x: 127
+        x: 128
         y: 34
-        width: 32
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50b54fa761709b346b8486817a7717af
+      internalID: 1661179678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CelestialObjects_29
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 33
+        width: 31
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -761,8 +783,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50b54fa761709b346b8486817a7717af
-      internalID: 1661179678
+      spriteID: e53f213830772114098e7d3003718b0d
+      internalID: -1504198291
       vertices: []
       indices: 
       edges: []
@@ -803,6 +825,7 @@ TextureImporter:
       CelestialObjects_26: 414698766
       CelestialObjects_27: 383317001
       CelestialObjects_28: 1661179678
+      CelestialObjects_29: -1504198291
       CelestialObjects_3: 4764904786231306360
       CelestialObjects_4: 5145774931494969807
       CelestialObjects_5: 2108950699465493383

@@ -8,6 +8,7 @@ TagManager:
   - Missile
   - Boss
   - BossMissile
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2126675059
+    locked: 0
+  - name: Player
+    uniqueID: 3323984525
     locked: 0
   m_RenderingLayers:
   - Default
