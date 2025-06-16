@@ -1,2 +1,4 @@
 Library/
 Logs/
+# Visual Studio cache directory
+.vs/
