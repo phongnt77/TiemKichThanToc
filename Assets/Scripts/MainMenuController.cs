@@ -3,20 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public void PlayGame()
+    public void HandleEasyButton()
+    {
+        SceneManager.LoadScene("ScenceEasy");
+    }
+    public void HandleMediumButton()
+    {
+        SceneManager.LoadScene("ScenceMedium");
+    }
+    public void HandleHardButton()
     {
         SceneManager.LoadScene("ScenceHard");
     }
-
-    public void ShowHowToPlay()
+    public void HandleEndlessButton()
     {
-        // T?y b?n: hi?n popup ho?c chuy?n scene kh?c
-        Debug.Log("Show how to play...");
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("Quit Game");
+        SceneManager.LoadScene("ScenceEndLess");
     }
 }
