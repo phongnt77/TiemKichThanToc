@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assembly-CSharp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assembly-CSharp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assets\\Scripts\\BeamController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\BeamController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,19 +51,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Assembly-CSharp.csproj",
+              "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assembly-CSharp.csproj",
+              "RelativeDocumentMoniker": "Assembly-CSharp.csproj",
+              "ToolTip": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assembly-CSharp.csproj",
+              "RelativeToolTip": "Assembly-CSharp.csproj",
+              "ViewState": "AgIAAN8IAAAAAAAAAAAAAO8IAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-27T09:07:59.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "BeamController.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assets\\Scripts\\BeamController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BeamController.cs",
               "ToolTip": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assets\\Scripts\\BeamController.cs",
               "RelativeToolTip": "Assets\\Scripts\\BeamController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-27T07:05:05.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BossMissileController.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assets\\Scripts\\BossMissileController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BossMissileController.cs",
@@ -71,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BossController.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assets\\Scripts\\BossController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BossController.cs",
@@ -83,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
@@ -96,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "EnemyController.cs",
               "DocumentMoniker": "D:\\FPTU\\Semeter7\\1_PRU212\\TiemKichThanToc\\Assets\\Scripts\\EnemyController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyController.cs",
