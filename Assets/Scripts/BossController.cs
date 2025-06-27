@@ -1,4 +1,3 @@
-using System.Reflection;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
@@ -14,31 +13,50 @@ public class BossController : MonoBehaviour
 
     [Header("Attack")]
     public GameObject bossMissilePrefab;
-    public Transform firePoint;
+    public Transform[] firePoints; // M?ng các ?i?m b?n cho ??n và Beam
     public float fireRate = 2f;
     private float fireTimer;
+
+    [Header("Ultimate Attack - Beam")]
+    public float ultimateDelay = 10f;
+    public GameObject beamPrefab;
+    public float beamDuration = 2f;
+    private float ultimateTimer;
+    private bool isFiringUltimate = false; // Tr?ng thái b?n Ultimate
+    private Vector3 ultimateStartPosition; // V? trí ban ??u khi b?n Ultimate
 
     void Start()
     {
         currentHealth = maxHealth;
         startPos = transform.position;
-        fireTimer = fireRate;
+        fireTimer = 0f;
+        ultimateTimer = 0f;
+        Debug.Log("BossController started at: " + transform.position + " with ultimateDelay: " + ultimateDelay);
     }
 
     void Update()
     {
-        Move();
-        ShootMissile();
+        if (Time.timeScale > 0)
+        {
+            if (isFiringUltimate)
+            {
+                // Khóa v? trí khi b?n Ultimate
+                transform.position = ultimateStartPosition;
+                Debug.Log("Boss locked at: " + ultimateStartPosition + " at time: " + Time.time);
+            }
+            else
+            {
+                Move();
+            }
+            ShootMissile();
+            CheckUltimate();
+        }
     }
 
     void Move()
     {
         Vector3 pos = transform.position;
-        if (movingRight)
-            pos.x += moveSpeed * Time.deltaTime;
-        else
-            pos.x -= moveSpeed * Time.deltaTime;
-
+        pos.x += (movingRight ? 1 : -1) * moveSpeed * Time.deltaTime;
         transform.position = pos;
 
         if (Mathf.Abs(pos.x - startPos.x) >= moveRange)
@@ -48,37 +66,114 @@ public class BossController : MonoBehaviour
     void ShootMissile()
     {
         fireTimer -= Time.deltaTime;
-        if (fireTimer <= 0)
+
+        if (fireTimer <= 0f && !isFiringUltimate && firePoints != null && firePoints.Length > 0)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-            if (player != null)
+            Transform firePoint = firePoints[Random.Range(0, firePoints.Length)];
+            if (firePoint != null)
             {
-                Vector2 direction = (player.transform.position - firePoint.position).normalized;
                 GameObject missile = Instantiate(bossMissilePrefab, firePoint.position, Quaternion.identity);
+                Debug.Log("Boss Missile spawned at: " + firePoint.position + " at time: " + Time.time);
 
-                Rigidbody2D rb = missile.GetComponent<Rigidbody2D>();
-                rb.linearVelocity = direction * 5f;
+                BossMissileController missileCtrl = missile.GetComponent<BossMissileController>();
+                if (missileCtrl != null)
+                {
+                    missileCtrl.missileSpeed = 5f;
+                    missile.transform.up = Vector3.down;
+                }
+                else
+                {
+                    Debug.LogError("BossMissile missing BossMissileController!");
+                }
+            }
+            else
+            {
+                Debug.LogError("Fire point is null!");
             }
 
             fireTimer = fireRate;
         }
     }
 
+    void CheckUltimate()
+    {
+        ultimateTimer += Time.deltaTime;
+        Debug.Log("Ultimate timer: " + ultimateTimer + " / " + ultimateDelay + " | Conditions: beamPrefab=" + (beamPrefab != null) + ", firePoints=" + (firePoints != null) + ", Length=" + (firePoints?.Length ?? 0) + ", !isFiringUltimate=" + !isFiringUltimate);
+        if (ultimateTimer >= ultimateDelay && beamPrefab != null && firePoints != null && firePoints.Length > 0 && !isFiringUltimate)
+        {
+            FireUltimate();
+            ultimateTimer = 0f;
+            Debug.Log("Boss Ultimate Beam triggered at time: " + Time.time);
+        }
+    }
+
+    void FireUltimate()
+    {
+        if (beamPrefab != null && firePoints != null)
+        {
+            isFiringUltimate = true;
+            ultimateStartPosition = transform.position;
+            Debug.Log("Firing Ultimate from position: " + ultimateStartPosition + " with beamDuration: " + beamDuration);
+            foreach (Transform firePoint in firePoints)
+            {
+                if (firePoint != null)
+                {
+                    SpawnBeam(firePoint, Vector3.down);
+                }
+            }
+            Invoke("EndUltimate", beamDuration);
+        }
+        else
+        {
+            Debug.LogError("beamPrefab or firePoints is null! beamPrefab: " + (beamPrefab != null) + ", firePoints: " + (firePoints != null));
+        }
+    }
+
+    void SpawnBeam(Transform firePoint, Vector3 direction)
+    {
+        GameObject beam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
+        Debug.Log("Beam spawned at: " + firePoint.position + " with direction: " + direction + " | Beam active: " + beam.activeSelf);
+
+        beam.transform.up = direction;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        beam.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+
+        BeamController beamCtrl = beam.GetComponent<BeamController>();
+        if (beamCtrl != null)
+        {
+            beamCtrl.duration = beamDuration;
+            Debug.Log("BeamController found, duration set to: " + beamDuration);
+        }
+        else
+        {
+            Debug.LogWarning("BeamController not found, using Destroy with duration: " + beamDuration);
+            Destroy(beam, beamDuration);
+        }
+    }
+
+    void EndUltimate()
+    {
+        isFiringUltimate = false;
+        Debug.Log("Ultimate finished, resuming normal behavior at time: " + Time.time + " at position: " + transform.position);
+    }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     void Die()
     {
-        Instantiate(GameManager.instance.explosionEffect, transform.position, Quaternion.identity);
+        if (GameManager.instance?.explosionEffect != null)
+        {
+            GameObject explosion = Instantiate(GameManager.instance.explosionEffect, transform.position, Quaternion.identity);
+            Destroy(explosion, 1f);
+        }
         Destroy(gameObject);
-        GameManager.instance.GameOver(); // ho?c g?i Victory n?u c?n
+        if (GameManager.instance != null)
+            GameManager.instance.AddScore(50);
     }
 }

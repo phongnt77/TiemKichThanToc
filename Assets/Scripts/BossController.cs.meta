@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 2d32c3077a8b6674091156d801c5df6d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bossMissilePrefab: {fileID: 5103557068633160270, guid: fc93f142bcfc27246b4458f268859275, type: 3}
+  - beamPrefab: {fileID: 2223454227025394619, guid: a065cdbc12495db459229c2927ae1d0a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

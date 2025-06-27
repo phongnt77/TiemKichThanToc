@@ -6,9 +6,25 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+<<<<<<< Updated upstream
         transform.Translate(Vector3.down * speed * Time.deltaTime);
         // Thay Vector3.left bằng Vector3.down
         Debug.Log("Enemy moving down at position: " + transform.position);
+=======
+        // Di chuyển xuống liên tục
+        transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+
+        // Giới hạn chỉ theo trục x
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, -2.5f, 2.5f);
+        transform.position = pos;
+
+        // Hủy enemy khi ra khỏi màn hình (dưới y = -5f)
+        if (pos.y < -5f)
+        {
+            Destroy(gameObject);
+        }
+>>>>>>> Stashed changes
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

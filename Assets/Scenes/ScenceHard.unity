@@ -551,6 +551,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399151538}
   m_CullTransparentMesh: 1
+--- !u!1 &510488494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510488496}
+  m_Layer: 0
+  m_Name: Backgrounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &510488496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510488494}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6087782, y: -0.5637182, z: -9.954055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1725963794}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,7 +1263,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6473092748946238330, guid: f60f97d251912f741bf2b402c931b835, type: 3}
   minInstantiateValue: -6
   maxInstantiateValue: 7
-  enemyDestroyTime: 3
+  enemyDestroyTime: 10
   explosionEffect: {fileID: 6897467658286865324, guid: 8206f55c06eac8a4982a443fe317a5fe, type: 3}
   muzzleFlash: {fileID: 100002, guid: 565cdc2ed7b030a41accd8f00ae59a50, type: 3}
   StartMenu: {fileID: 1631942814}
@@ -1518,7 +1550,7 @@ GameObject:
   - component: {fileID: 1180464641}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2783,6 +2815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1725963794}
   - component: {fileID: 1725963793}
+  - component: {fileID: 1725963795}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2853,13 +2886,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725963792}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.137, z: 0}
-  m_LocalScale: {x: 1.0489856, y: 0.9910756, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.5799782, y: 16.1978, z: 9.954055}
+  m_LocalScale: {x: 0.29992086, y: 2.3664038, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 510488496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!1 &1854945262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,11 +2932,15 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854945264
+=======
+--- !u!114 &1725963795
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1854945262}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2939,6 +2977,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854945262}
   m_CullTransparentMesh: 1
+=======
+  m_GameObject: {fileID: 1725963792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30df5940a72b4d049bd42bf70f168ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 1
+>>>>>>> Stashed changes
 --- !u!1 &2012724295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,9 +3289,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 1725963794}
   - {fileID: 1180464637}
   - {fileID: 714249380}
   - {fileID: 249937095}
   - {fileID: 1026847797}
   - {fileID: 211827666}
+  - {fileID: 510488496}

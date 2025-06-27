@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
         if (!bossSpawned && GetScore() >= 10)
         {
-            Debug.Log("Spawning boss at score: " + GetScore());
+            Debug.Log("💀 Boss is spawning at score 10");
             Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
             bossSpawned = true;
         }
