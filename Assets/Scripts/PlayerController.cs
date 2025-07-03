@@ -1,68 +1,64 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     public float speed = 10f;
 
-    [Header("Missile")]
-    public GameObject missile;
-    public Transform missileSpawnPosition;
-    public float Destroytime = 5f;
-    public Transform muzzleSpawnPosition;
+    [Header("Missile Settings")]
+    public GameObject missilePrefab;
+    public Transform missileSpawnPoint;
+    public float missileLifeTime = 5f;
 
-    private void Update()
-    {
-        playermovement();
-        bulletshoot();
-    }
-    // Update is called once per frame
-    void playermovement()
-    {
-        //player movement
-        float xPos = Input.GetAxis("Horizontal");
-        float yPos = Input.GetAxis("Vertical");
+    [Header("Muzzle Effect")]
+    public Transform muzzleSpawnPoint;
 
-        Vector3 movement = new Vector3(xPos, yPos, 0) * speed * Time.deltaTime;
-        transform.Translate(movement);
+    void Update()
+    {
+        Move();
+        Shoot();
     }
 
-    void bulletshoot()
+    void Move()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+
+        Vector3 move = new Vector3(x, y, 0) * speed * Time.deltaTime;
+        transform.Translate(move);
+
+        // Giới hạn vùng chơi
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, -2.5f, 2.5f);
+        pos.y = Mathf.Clamp(pos.y, -4.5f, 4.5f);
+        transform.position = pos;
+    }
+
+    void Shoot()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SpawnMissile();
-            SpawnMuzzle();
+            if (missilePrefab != null && missileSpawnPoint != null)
+            {
+                GameObject missile = Instantiate(missilePrefab, missileSpawnPoint.position, Quaternion.identity);
+                Destroy(missile, missileLifeTime);
+            }
+
+            if (GameManager.instance != null && GameManager.instance.muzzleFlash != null && muzzleSpawnPoint != null)
+            {
+                GameObject muzzle = Instantiate(GameManager.instance.muzzleFlash, muzzleSpawnPoint.position, Quaternion.identity);
+                Destroy(muzzle, missileLifeTime);
+            }
         }
     }
 
-    void SpawnMissile()
-    {
-        GameObject gym = Instantiate(missile, missileSpawnPosition);
-        gym.transform.SetParent(null);
-        Destroy(gym, Destroytime);
-    }
-
-    void SpawnMuzzle()
-    {
-        GameObject muzz = Instantiate(GameManager.instance.muzzleFlash, muzzleSpawnPosition);
-        muzz.transform.SetParent(null);
-        Destroy(muzz, Destroytime);
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Player collided with Enemy"); // Debug để kiểm tra va chạm
-
             Destroy(gameObject);
-
             if (GameManager.instance != null)
-            {
                 GameManager.instance.GameOver();
-            }
-
-            Debug.Log("Game Over");
         }
     }
 }

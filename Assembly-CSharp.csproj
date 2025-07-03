@@ -61,42 +61,45 @@
     <Analyzer Include="D:\Dowloads\Unity Hub\Editor\6000.0.32f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Enless\RotatingMovement.cs" />
     <Compile Include="Assets\Scripts\Enless\PlayerControllerEndLess.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Enless\PlayerInputAction.cs" />
-    <Compile Include="Assets\Scripts\Enless\BackGroundEndLess.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Enless\ParallaxBackGround.cs" />
     <Compile Include="Assets\Scripts\BossMissileController.cs" />
     <Compile Include="Assets\Scripts\Enless\BulletPoolManager.cs" />
     <Compile Include="Assets\Scripts\BossController.cs" />
+    <Compile Include="Assets\Scripts\Enless\Bullet.cs" />
+    <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MissileController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
+    <None Include="Assets\Sprite\2D Space Kit\Backgrounds\Background Tip.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\2D Space Kit\Readme.txt" />
+    <None Include="Assets\Sprite\2D Space Kit\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
-    <None Include="Assets\2D Space Kit\Background Elements\Planets\Planet Masks\Note.txt" />
+    <None Include="Assets\Sprite\2D Space Kit\Background Elements\Planets\Planet Masks\Note.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\2D Space Kit\Background Elements\Stars\Recolor Us!.txt" />
+    <None Include="Assets\Sprite\2D Space Kit\Background Elements\Stars\Recolor Us!.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\2D Space Kit\Particles (Sprites)\Note on Flares.txt" />
-    <None Include="Assets\2D Space Kit\Backgrounds\Fantasy Purple 2048\Note.txt" />
+    <None Include="Assets\Sprite\2D Space Kit\Particles (Sprites)\Note on Flares.txt" />
+    <None Include="Assets\Sprite\2D Space Kit\Backgrounds\Fantasy Purple 2048\Note.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\2D Space Kit\Ships and Stations\Rendering Tip.txt" />
+    <None Include="Assets\Sprite\2D Space Kit\Ships and Stations\Rendering Tip.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

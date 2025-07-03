@@ -1,4 +1,4 @@
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +8,9 @@ public class PlayerControllerEndLess : MonoBehaviour
     private PlayerInputAction inputActions;
     public float speed= 10f;
 
+    public float fireRate = 0.2f; // 5 viên/giây
+    private float fireTimer = 0f;
+    private bool isFiring = false;
     void Awake()
     {
         inputActions = new PlayerInputAction();
@@ -15,6 +18,9 @@ public class PlayerControllerEndLess : MonoBehaviour
 
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+
+        inputActions.Player.Bullet.performed += ctx => isFiring = true;
+        inputActions.Player.Bullet.canceled += ctx => isFiring = false;
     }
 
 
@@ -28,6 +34,7 @@ public class PlayerControllerEndLess : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        HandleShooting();
     }
 
     void OnEnable()
@@ -50,5 +57,38 @@ public class PlayerControllerEndLess : MonoBehaviour
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, 0.05f, 0.95f);       
         clampedPosition.y = Mathf.Clamp(clampedPosition.y, 0.05f, 0.95f);
         transform.position = Camera.main.ViewportToWorldPoint(clampedPosition);
+    }
+
+    void HandleShooting()
+    {
+        if (isFiring)
+        {
+            fireTimer += Time.deltaTime;
+            if (fireTimer >= fireRate)
+            {
+                Shoot();
+                fireTimer = 0f;
+            }
+        }
+        else
+        {
+            fireTimer = fireRate; // Đảm bảo bắn ngay khi nhấn lại
+        }
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = BulletPoolManager.Instance.GetBullet();
+        Vector3 offset = new Vector3(0f, 1f, 0f); // lệch lên trên nửa đơn vị
+        bullet.transform.position = transform.position + offset;
+        bullet.transform.rotation = Quaternion.identity;
+
+        // Bỏ qua va chạm giữa bullet và player
+        Collider2D bulletCollider = bullet.GetComponent<Collider2D>();
+        Collider2D playerCollider = GetComponent<Collider2D>();
+        if (bulletCollider != null && playerCollider != null)
+        {
+            Physics2D.IgnoreCollision(bulletCollider, playerCollider, true);
+        }
     }
 }

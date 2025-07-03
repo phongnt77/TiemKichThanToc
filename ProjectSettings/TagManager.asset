@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - BossMissile
   - Projectile
+  - Bullet
   layers:
   - Default
   - TransparentFX
