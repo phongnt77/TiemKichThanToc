@@ -4,25 +4,30 @@ public class MissileController : MonoBehaviour
 {
     public float missileSpeed = 25f;
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.up * missileSpeed * Time.deltaTime);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            if (GameManager.instance?.explosionEffect != null)
+            {
+                GameObject explosion = Instantiate(GameManager.instance.explosionEffect, transform.position, Quaternion.identity);
+                Destroy(explosion, 1f);
+            }
+            Destroy(other.gameObject);
             Destroy(gameObject);
+            GameManager.instance?.AddScore(10);
         }
-        else if (collision.gameObject.CompareTag("Boss"))
+        else if (other.CompareTag("Boss"))
         {
-            // Nếu còn enemy thì chưa cho bắn boss
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             if (enemies.Length == 0)
             {
-                collision.gameObject.GetComponent<BossController>()?.TakeDamage(50); // 50 là sát thương tạm
+                other.GetComponent<BossController>()?.TakeDamage(50);
                 Destroy(gameObject);
             }
         }

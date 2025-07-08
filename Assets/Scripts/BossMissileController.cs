@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossMissileController : MonoBehaviour
 {
@@ -6,18 +6,21 @@ public class BossMissileController : MonoBehaviour
 
     void Start()
     {
-        // ??t v?n t?c r?i th?ng xu?ng khi ??n ???c t?o ra
-        GetComponent<Rigidbody2D>().linearVelocity = Vector2.down * speed;
         Debug.Log("BossMissile Spawned at: " + transform.position);
+        // Không gán linearVelocity ở đây, để BossController xử lý
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+   void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+    if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-            GameManager.instance.GameOver();
+        // Gọi TakeDamage trên Player, KHÔNG destroy player ở đây
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.TakeDamage(50); // hoặc damage tùy bạn
+        }
+        Destroy(gameObject); // Chỉ destroy BossMissile
         }
     }
 }
