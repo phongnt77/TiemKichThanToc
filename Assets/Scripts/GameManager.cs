@@ -25,14 +25,14 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pauseScoreText;
     public TextMeshProUGUI gameOverScoreText;
 
-    private int score = 0;
-    private bool isGameStarted = false;
-    private bool isGameOver = false;
-
     [Header("Boss Settings")]
     public GameObject bossPrefab;
     public Transform bossSpawnPoint;
     private bool bossSpawned = false;
+
+    private int score = 0;
+    private bool isGameStarted = false;
+    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
         if (!bossSpawned && GetScore() >= 10)
         {
-            Debug.Log("Spawning boss at score: " + GetScore());
+            Debug.Log("💀 Boss is spawning at score 10");
             Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
             bossSpawned = true;
         }
@@ -88,7 +88,10 @@ public class GameManager : MonoBehaviour
     {
         if (enemyPrefab == null || !isGameStarted || isGameOver) return;
 
-        Vector3 enemyPos = new Vector3(Random.Range(-5f, 5f), 6f, 0f);
+        float minX = -2.5f;
+        float maxX = 2.5f;
+        float spawnY = 6f; // Vị trí trên cùng màn hình, tuỳ chỉnh nếu cần
+        Vector3 enemyPos = new Vector3(Random.Range(minX, maxX), spawnY, 0f);
         GameObject enemy = Instantiate(enemyPrefab, enemyPos, Quaternion.identity);
         Destroy(enemy, enemyDestroyTime);
     }
@@ -153,6 +156,7 @@ public class GameManager : MonoBehaviour
     {
         isGameStarted = false;
         isGameOver = false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -164,5 +168,14 @@ public class GameManager : MonoBehaviour
             pauseScoreText.text = "Score: " + score;
         if (gameOverScoreText != null)
             gameOverScoreText.text = "Score: " + score;
+    }
+
+    public void Victory()
+    {
+        Debug.Log("Victory Achieved!");
+        Time.timeScale = 0; // Dừng game
+        // Thêm logic hiển thị menu thắng (nếu có)
+        if (GameOverMenu != null) GameOverMenu.SetActive(true); // Có thể thay bằng VictoryMenu nếu bạn tạo
+        // Hiển thị thông báo thắng (tùy chọn)
     }
 }
