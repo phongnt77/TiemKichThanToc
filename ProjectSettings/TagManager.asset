@@ -10,6 +10,8 @@ TagManager:
   - BossMissile
   - Projectile
   - Bullet
+  - Laser
+  - Lazer
   layers:
   - Default
   - TransparentFX
