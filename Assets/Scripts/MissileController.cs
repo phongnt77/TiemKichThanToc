@@ -11,6 +11,7 @@ public class MissileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Missile hit: " + other.name + " | Tag: " + other.tag);
         if (other.CompareTag("Enemy"))
         {
             if (GameManager.instance?.explosionEffect != null)
@@ -24,12 +25,8 @@ public class MissileController : MonoBehaviour
         }
         else if (other.CompareTag("Boss"))
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (enemies.Length == 0)
-            {
-                other.GetComponent<BossController>()?.TakeDamage(50);
-                Destroy(gameObject);
-            }
+            other.GetComponent<BossController>()?.TakeDamage(50);
+            Destroy(gameObject);
         }
     }
 }

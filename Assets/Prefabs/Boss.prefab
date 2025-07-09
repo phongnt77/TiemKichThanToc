@@ -207,11 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32c3077a8b6674091156d801c5df6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 3000
   moveSpeed: 2
   moveRange: 3
   bossMissilePrefab: {fileID: 593010699670979302, guid: fc93f142bcfc27246b4458f268859275, type: 3}
   firePoint: {fileID: 1100061283067018650}
   fireRate: 2
-  laserPrefab: {fileID: 3137627538581766871, guid: 6437d4d0816a3ed40b8ab77b036209db, type: 3}
-  laserFireRate: 5
+  bossHealthBar: {fileID: 0}
+  bossHealthText: {fileID: 0}

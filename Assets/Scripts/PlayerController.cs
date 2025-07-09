@@ -16,17 +16,18 @@ public class PlayerController : MonoBehaviour
     public Transform muzzleSpawnPoint;
 
     [Header("Health")]
-    public int maxHealth = 1000;
-    private int currentHealth;
+    public float maxHealth = 1000f;
+    private float currentHealth;
 
-    [Header("UI")]
-    public Slider healthBar; // Tham chiếu đến Slider Health Bar
-    public TMP_Text healthText; // Thay Text bằng TMP_Text cho TextMeshPro
+    public PlayerUIController playerUI;
 
     void Start()
     {
         currentHealth = maxHealth;
-        UpdateHealthUI();
+        if (playerUI == null)
+            playerUI = FindObjectOfType<PlayerUIController>();
+        if (playerUI != null)
+            playerUI.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -67,11 +68,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
-        UpdateHealthUI();
+        if (playerUI != null)
+            playerUI.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -84,18 +86,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.Log("Player HP: " + currentHealth);
-        }
-    }
-
-    void UpdateHealthUI()
-    {
-        if (healthBar != null)
-        {
-            healthBar.value = currentHealth;
-        }
-        if (healthText != null)
-        {
-            healthText.text = "HP: " + currentHealth + "/" + maxHealth;
         }
     }
 
@@ -114,5 +104,4 @@ public class PlayerController : MonoBehaviour
             TakeDamage(50);
         }
     }
-
 }

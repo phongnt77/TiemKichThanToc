@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BossController : MonoBehaviour
 {
-    public int maxHealth = 1000;
-    private int currentHealth;
+    public float maxHealth = 100f;
+    private float currentHealth;
 
     [Header("Movement")]
     public float moveSpeed = 2f;
@@ -18,31 +20,32 @@ public class BossController : MonoBehaviour
     public float fireRate = 2f;
     private float fireTimer;
 
-    [Header("Laser Attack")]
-    public GameObject laserPrefab; // Tham chiếu đến LaserParticle.prefab
-    public float laserFireRate = 5f; // Chu kỳ bắn laser
-    private float laserTimer;
-    private bool isShootingLaser = false;
+    // Xóa hitCount
 
-    private int hitCount;
+    public BossUIController bossUI;
 
     void Start()
     {
         currentHealth = maxHealth;
         startPos = transform.position;
         fireTimer = fireRate;
-        laserTimer = laserFireRate;
-        isShootingLaser = false;
-        hitCount = 0;
         Debug.Log("✅ BossController has started");
+
+        // Tự động tìm BossUIController nếu chưa gán
+        if (bossUI == null)
+        {
+            bossUI = FindObjectOfType<BossUIController>();
+        }
+        if (bossUI != null)
+        {
+            bossUI.SetMaxHealth(maxHealth);
+        }
     }
 
     void Update()
     {
-         if (!isShootingLaser)
-            Move();
+        Move();
         ShootMissile();
-        ShootLaser();
     }
 
     void Move()
@@ -70,53 +73,15 @@ public class BossController : MonoBehaviour
         }
     }
 
-  void ShootLaser()
-{
-    laserTimer -= Time.deltaTime;
-    if (laserTimer <= 0f && laserPrefab != null && firePoint != null && !isShootingLaser)
+    public void TakeDamage(float amount)
     {
-        Debug.Log("🔔 Đến thời điểm Boss bắn Laser!");
-        StartCoroutine(ShootLaserAndPause());
-        laserTimer = laserFireRate;
-    }
-}
-
-    IEnumerator ShootLaserAndPause()
-{
-    isShootingLaser = true;
-    Debug.Log("💥 Boss bắt đầu bắn Laser!");
-
-    // Tạo Laser
-    GameObject laser = Instantiate(laserPrefab, firePoint.position, Quaternion.identity);
-    Debug.Log("💥 Laser đã được tạo tại: " + firePoint.position);
-
-    // Gắn laser vào firePoint (nếu muốn nó di chuyển theo Boss)
-    laser.transform.parent = firePoint;
-    laser.transform.localRotation = Quaternion.Euler(0, 0, 90);
-
-    // Lấy thời gian tồn tại của laser
-    float laserTime = 1.5f; // Giá trị mặc định
-    LaserController laserCtrl = laser.GetComponent<LaserController>();
-    if (laserCtrl != null)
-        laserTime = laserCtrl.laserDuration;
-
-    // Đứng yên đúng thời gian laser tồn tại
-    yield return new WaitForSeconds(laserTime);
-
-    isShootingLaser = false;
-    Debug.Log("✅ Boss tiếp tục di chuyển sau khi bắn Laser!");
-}
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        hitCount++;
-
-        if (currentHealth <= 0)
+        currentHealth -= amount;
+        currentHealth = Mathf.Max(currentHealth, 0);
+        if (bossUI != null)
         {
-            Die();
+            bossUI.SetHealth(currentHealth);
         }
-        else if (hitCount >= 5)
+        if (currentHealth <= 0)
         {
             Victory();
         }
@@ -127,15 +92,29 @@ public class BossController : MonoBehaviour
         Instantiate(GameManager.instance.explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
         GameManager.instance.GameOver();
+
+        if (bossUI != null && bossUI.healthBar != null)
+            bossUI.healthBar.gameObject.SetActive(false);
+
+        // Hiện Pop-up "You Win"
+        GameObject winPopup = GameObject.Find("WinPopup");
+        if (winPopup != null)
+            winPopup.SetActive(true);
     }
 
     void Victory()
     {
-        if (GameManager.instance != null)
-        {
-            Debug.Log("Victory! You won by hitting the Boss 5 times!");
-            GameManager.instance.Victory();
-        }
+        Instantiate(GameManager.instance.explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        GameManager.instance.Victory();
+        if (bossUI != null && bossUI.healthBar != null)
+            bossUI.healthBar.gameObject.SetActive(false);
+        if (bossUI != null && bossUI.healthText != null)
+            bossUI.healthText.gameObject.SetActive(false);
+
+        // Hiện GameWinMenu
+        GameObject winMenu = GameObject.Find("GameWinMenu");
+        if (winMenu != null)
+            winMenu.SetActive(true);
     }
 }
