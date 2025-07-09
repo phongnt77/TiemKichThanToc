@@ -19,11 +19,13 @@ public class GameManager : MonoBehaviour
     [Header("Panels (Drag from Hierarchy)")]
     public GameObject PauseMenu;
     public GameObject GameOverMenu;
+    public GameObject GameWinMenu; // Thêm trường này
 
     [Header("Score UI (Drag from Hierarchy)")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI pauseScoreText;
     public TextMeshProUGUI gameOverScoreText;
+    public TextMeshProUGUI gameWinScoreText; // Thêm trường này
 
     [Header("Boss Settings")]
     public GameObject bossPrefab;
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
     {
         if (PauseMenu != null) PauseMenu.SetActive(false);
         if (GameOverMenu != null) GameOverMenu.SetActive(false);
+        if (GameWinMenu != null) GameWinMenu.SetActive(false); // Ẩn GameWinMenu khi bắt đầu game
+        if (gameWinScoreText != null) gameWinScoreText.gameObject.SetActive(false); // Ẩn text khi bắt đầu game
 
         if (!pauseScoreText || !gameOverScoreText || !scoreText)
             Debug.LogWarning("Một số Text UI chưa được gán trong GameManager!");
@@ -174,8 +178,15 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Victory Achieved!");
         Time.timeScale = 0; // Dừng game
-        // Thêm logic hiển thị menu thắng (nếu có)
-        if (GameOverMenu != null) GameOverMenu.SetActive(true); // Có thể thay bằng VictoryMenu nếu bạn tạo
-        // Hiển thị thông báo thắng (tùy chọn)
+        if (GameWinMenu != null) GameWinMenu.SetActive(true); // Bật GameWinMenu khi thắng
+        if (GameOverMenu != null) GameOverMenu.SetActive(false); // Ẩn GameOverMenu nếu đang bật
+        if (scoreText != null) scoreText.gameObject.SetActive(false);
+        if (gameWinScoreText != null)
+        {
+            gameWinScoreText.text = "Score: " + score;
+            gameWinScoreText.gameObject.SetActive(true);
+        }
+        CancelInvoke("InstantiateEnemy");
+        UpdateScoreUI();
     }
 }
