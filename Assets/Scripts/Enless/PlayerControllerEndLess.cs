@@ -6,15 +6,22 @@ public class PlayerControllerEndLess : MonoBehaviour
 {
     private Vector2 moveInput;
     private PlayerInputAction inputActions;
-    public float speed= 10f;
+    public float speed = 10f;
 
     public float fireRate = 0.2f; // 5 viên/giây
     private float fireTimer = 0f;
     private bool isFiring = false;
+
+    [Header("Health Settings")]
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
+
+    [SerializeField]
+    private ObjectPoolManager bulletPool;
     void Awake()
     {
         inputActions = new PlayerInputAction();
-
 
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
@@ -27,7 +34,8 @@ public class PlayerControllerEndLess : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -54,7 +62,7 @@ public class PlayerControllerEndLess : MonoBehaviour
 
         // clamp the player's position to the camera's viewport
         Vector3 clampedPosition = Camera.main.WorldToViewportPoint(transform.position);
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, 0.05f, 0.95f);       
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, 0.05f, 0.95f);
         clampedPosition.y = Mathf.Clamp(clampedPosition.y, 0.05f, 0.95f);
         transform.position = Camera.main.ViewportToWorldPoint(clampedPosition);
     }
@@ -78,17 +86,30 @@ public class PlayerControllerEndLess : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = BulletPoolManager.Instance.GetBullet();
-        Vector3 offset = new Vector3(0f, 1f, 0f); // lệch lên trên nửa đơn vị
-        bullet.transform.position = transform.position + offset;
-        bullet.transform.rotation = Quaternion.identity;
+        GameObject bulletObj = bulletPool.GetObject();
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        bullet.bulletPool = bulletPool; // Gán bulletPool cho viên đạn để nó có thể trả về pool 
 
-        // Bỏ qua va chạm giữa bullet và player
-        Collider2D bulletCollider = bullet.GetComponent<Collider2D>();
-        Collider2D playerCollider = GetComponent<Collider2D>();
-        if (bulletCollider != null && playerCollider != null)
+        bulletObj.transform.position = transform.position;
+        bulletObj.transform.rotation = Quaternion.identity;
+
+        //// Bỏ qua va chạm giữa bullet và player
+        //Collider2D bulletCollider = bullet.GetComponent<Collider2D>();
+        //Collider2D playerCollider = GetComponent<Collider2D>();
+        //if (bulletCollider != null && playerCollider != null)
+        //{
+        //    Physics2D.IgnoreCollision(bulletCollider, playerCollider, true);
+        //}
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
         {
-            Physics2D.IgnoreCollision(bulletCollider, playerCollider, true);
+            //Die();
         }
     }
 }
