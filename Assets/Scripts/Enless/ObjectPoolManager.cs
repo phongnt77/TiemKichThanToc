@@ -6,46 +6,46 @@ using UnityEngine;
 /// Sử dụng link trên để tìm hiểu cho object pooling trong unity kết hợp sử dụng singleton pattern
 /// </summary>
 
-public class BulletPoolManager : MonoBehaviour
+public class ObjectPoolManager : MonoBehaviour
 {
-    public static BulletPoolManager Instance { get; private set; }
+    //public static ObjectPoolManager Instance { get; private set; }
 
-    public GameObject bulletPrefab;
+    public GameObject objectPrefab;
     public int poolSize = 20;
     private Queue<GameObject> pool = new Queue<GameObject>();
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        //if (Instance == null) Instance = this;
+        //else Destroy(gameObject);
 
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(bulletPrefab);
+            GameObject obj = Instantiate(objectPrefab);
             obj.SetActive(false);
             pool.Enqueue(obj);
         }
     }
 
-    public GameObject GetBullet()
+    public GameObject GetObject()
     {
         if (pool.Count > 0)
         {
-            var bullet = pool.Dequeue();
-            bullet.SetActive(true);
-            return bullet;
+            var obj = pool.Dequeue();
+            obj.SetActive(true);
+            return obj;
         }
         else
         {
             // Có thể mở rộng pool nếu cần
-            var bullet = Instantiate(bulletPrefab);
-            return bullet;
+            var obj = Instantiate(objectPrefab, transform.position, Quaternion.identity);
+            return obj;
         }
     }
 
-    public void ReturnBullet(GameObject bullet)
+    public void ReturnObject(GameObject obj)
     {
-        bullet.SetActive(false);
-        pool.Enqueue(bullet);
+        obj.SetActive(false);
+        pool.Enqueue(obj);
     }
 }

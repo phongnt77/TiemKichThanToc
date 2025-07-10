@@ -2,8 +2,9 @@
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 15f;
-
+    public float speed = 25f;
+    [HideInInspector] 
+    public ObjectPoolManager bulletPool;
     void Update()
     {
         transform.Translate(Vector3.up * speed * Time.deltaTime);
@@ -15,7 +16,8 @@ public class Bullet : MonoBehaviour
         ///Theo định nghĩa thì viewport có giá trị từ 0 đến 1 (trục X từ 0 đến 1, trục Y cũng từ 0 đến 1).
         if (viewPos.y > 1.1f || viewPos.y < -0.1f || viewPos.x > 1.1f || viewPos.x < -0.1f)
         {
-            BulletPoolManager.Instance.ReturnBullet(gameObject);
+            //ObjectPoolManager.Instance.ReturnObject(gameObject);
+            bulletPool.ReturnObject(gameObject);
         }
     }
 
@@ -25,6 +27,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject == gameObject || other.CompareTag("Bullet"))
             return;
         //Debug.Log("Bullet collided with: " + other.name); // Ở vị trí ko di chuyển thì nó tự động gom nên phải check 
-        BulletPoolManager.Instance.ReturnBullet(gameObject);
+        //ObjectPoolManager.Instance.ReturnObject(gameObject);
+        bulletPool.ReturnObject(gameObject);
     }
 }

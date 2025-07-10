@@ -59,7 +59,7 @@ public class ParallaxBackGround : MonoBehaviour
 
         // Nếu background ra khỏi camera view ở phía dưới thì reset lên trên
         //float cameraBottom = mainCamera.transform.position.y - mainCamera.orthographicSize;
-        if ( transform.position.y <= -176f)
+        if ( transform.position.y <= -210f)
         {
             //float cameraTop = mainCamera.transform.position.y + mainCamera.orthographicSize;
             transform.position = new Vector3(transform.position.x,backgroundHeight, transform.position.z);
