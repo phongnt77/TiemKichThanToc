@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (SceneManager.GetActiveScene().name != "ScenceHard")
+        if (SceneManager.GetActiveScene().name != "SceneHard")
         {
             Destroy(gameObject);
             return;
