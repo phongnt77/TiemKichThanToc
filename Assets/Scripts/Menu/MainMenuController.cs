@@ -1,3 +1,4 @@
+using Assets.Scripts.Enless;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class MainMenuController : MonoBehaviour
     public void HandleHowToPlayButton()
     {
         previousButton.interactable = false;
+        nextButton.interactable = true;
     }
 
     public void HandleNextPage()
@@ -72,7 +74,6 @@ public class MainMenuController : MonoBehaviour
         }
         else if (level.Equals("Easy"))
         {
-            Debug.Log("Easy level is selected.");
             mediumButton.interactable = true;
             hardButton.interactable = false;
         }
@@ -101,12 +102,14 @@ public class MainMenuController : MonoBehaviour
     }
     public void HandleEndlessButton()
     {
-        SceneManager.LoadScene("SceneEndLess");
+        LoadingData.SceneToLoad = "SceneEndLess";
+        SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("SceneEndLess");
     }
     public void HandleQuitButton()
     {
         UnityEditor.EditorApplication.isPlaying = false;
-
+        PlayerPrefs.DeleteKey("Level");
         // If running in application build use
         // Application.Quit();
     }

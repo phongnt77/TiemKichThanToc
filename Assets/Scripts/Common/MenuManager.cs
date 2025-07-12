@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI pauseScoreText;
-
+    [SerializeField] private TextMeshProUGUI pauseScoreTextHard;
     void Start()
     {
         Time.timeScale = 1f;
@@ -19,6 +19,13 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 0f;
         int currentScore = EasyManager.Instance.score;
         pauseScoreText.text = "" + currentScore;
+    }
+
+    public void HandlePauseButtonHard()
+    {
+        Time.timeScale = 0f;
+        int currentScore = MediumManager.Instance.score;
+        pauseScoreTextHard.text = "" + currentScore;
     }
 
     public void HandlePlayButton()
@@ -39,5 +46,14 @@ public class MenuManager : MonoBehaviour
     public void HandleNextButton()
     {
         SceneManager.LoadScene("SceneMedium");
+    }
+    public void HandlePlayButtonForGameOverMedium()
+    {
+        SceneManager.LoadScene("SceneMedium");
+    }
+
+    public void HandleNextButtonMedium()
+    {
+        SceneManager.LoadScene("SceneHard");
     }
 }

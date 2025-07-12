@@ -1233,7 +1233,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 563153722a595934fa58aba9f5aef4e8, type: 2}
+  - {fileID: 2100000, guid: 596a078cda38e564dabc9bc28b320a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2641,6 +2641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 2063979381}
   pauseScoreText: {fileID: 1478561202}
+  pauseScoreTextHard: {fileID: 1478561202}
 --- !u!1 &1011649072
 GameObject:
   m_ObjectHideFlags: 0
@@ -5213,7 +5214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -970982771
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a93c36da6f7182e4096ca2c951efbf42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
