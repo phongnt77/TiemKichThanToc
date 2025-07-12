@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2610094474169838591}
   - component: {fileID: 3910522039620975071}
-  - component: {fileID: 6254153099357502028}
   - component: {fileID: -597469512800721881}
   - component: {fileID: -7633376546461508131}
+  - component: {fileID: 5975417132242409977}
   m_Layer: 0
-  m_Name: Missile
-  m_TagString: Missile
+  m_Name: Bullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,19 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6254153099357502028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5103557068633160270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 944ac469e2c0db54889340a5e0a24535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missileSpeed: 25
 --- !u!61 &-597469512800721881
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +144,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5103557068633160270}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -176,3 +163,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5975417132242409977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103557068633160270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b659f628fffb64faaf8946a94f042e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 25
+  explosionEffect: {fileID: 6897467658286865324, guid: 8206f55c06eac8a4982a443fe317a5fe, type: 3}
+  explosionSound: {fileID: 8300000, guid: c9ca6b5c1fcd0b0468db93aaa7204292, type: 3}
+  dropItems:
+  - {fileID: 2364563531516432104, guid: 4375cd0aee5cd184d8092e7786cfca8e, type: 3}
+  dropChance: 0.5

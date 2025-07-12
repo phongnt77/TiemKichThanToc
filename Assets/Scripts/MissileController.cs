@@ -11,7 +11,6 @@ public class MissileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Missile hit: " + other.name + " | Tag: " + other.tag);
         if (other.CompareTag("Enemy"))
         {
             if (GameManager.instance?.explosionEffect != null)

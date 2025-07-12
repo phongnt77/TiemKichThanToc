@@ -7609,6 +7609,8 @@ MonoBehaviour:
   - {fileID: 1370938915}
   - {fileID: 900246942}
   - {fileID: 238579364}
+  mediumButton: {fileID: 1417456805}
+  hardButton: {fileID: 1798743977}
 --- !u!114 &1510816852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7656,6 +7658,8 @@ MonoBehaviour:
   previousButton: {fileID: 0}
   nextButton: {fileID: 0}
   contentPages: []
+  mediumButton: {fileID: 0}
+  hardButton: {fileID: 0}
 --- !u!4 &1526689521
 Transform:
   m_ObjectHideFlags: 0
