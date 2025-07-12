@@ -1,3 +1,4 @@
+using Assets.Scripts.Enless;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -101,7 +102,9 @@ public class MainMenuController : MonoBehaviour
     }
     public void HandleEndlessButton()
     {
-        SceneManager.LoadScene("SceneEndLess");
+        LoadingData.SceneToLoad = "SceneEndLess";
+        SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("SceneEndLess");
     }
     public void HandleQuitButton()
     {

@@ -41,23 +41,26 @@ public class Bullet : MonoBehaviour
                 Destroy(explosion, 1f);
             }
 
-            //if (GameManagerEndless.instance != null)
-            //{
-            //    GameManagerEndless.instance.score += 10;
-            //    GameManagerEndless.instance.scoreText.text = "Score: " + GameManagerEndless.instance.score;
-            //}
+            if (GameManagerEndless.instance != null)
+            {
+                GameManagerEndless.instance.AddScore(10);
+            }
 
             bulletPool.ReturnObject(gameObject);
         }
-        //else if (other.gameObject.CompareTag("BulletEnemy"))
-        //{
-        //    if (GameManagerEndless.instance?.explosionEffect != null)
-        //    {
-        //        GameObject explosion = Instantiate(GameManagerEndless.instance.explosionEffect, transform.position, Quaternion.identity);
-        //        Destroy(explosion, 1f);
-        //    }
-        //    bulletPool.ReturnObject(gameObject);
-        //}
+        else if (other.gameObject.CompareTag("BulletEnemy"))
+        {
+            if (GameManagerEndless.instance?.explosionEffect != null)
+            {
+                GameObject explosion = Instantiate(GameManagerEndless.instance.explosionEffect, transform.position, Quaternion.identity);
+                Destroy(explosion, 1f);
+                if (GameManagerEndless.instance != null)
+                {
+                    GameManagerEndless.instance.AddScore(5);
+                }
+            }
+            bulletPool.ReturnObject(gameObject);
+        }
         else if (other.gameObject.CompareTag("Asteroid"))
         {
             Debug.Log("Bullet hit Asteroid");
@@ -65,6 +68,10 @@ public class Bullet : MonoBehaviour
             {
                 GameObject explosion = Instantiate(GameManagerEndless.instance.explosionEffect, transform.position, Quaternion.identity);
                 Destroy(explosion, 1f);
+            }
+            if (GameManagerEndless.instance != null)
+            {
+                GameManagerEndless.instance.AddScore(10);
             }
             bulletPool.ReturnObject(gameObject);
         }

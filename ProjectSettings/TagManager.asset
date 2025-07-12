@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Missile
+  - Enemy
+  - Asteroid
+  - Bullet
+  - Boss
+  - BossMissile
+  - BulletEnemy
   layers:
   - Default
   - TransparentFX
@@ -40,6 +47,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 17942091
+    locked: 0
+  - name: Player
+    uniqueID: 3445544837
     locked: 0
   m_RenderingLayers:
   - Default

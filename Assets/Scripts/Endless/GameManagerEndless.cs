@@ -28,8 +28,11 @@ public class GameManagerEndless : MonoBehaviour
 
     [Header("Score UI (Drag from Hierarchy)")]
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI pauseScoreText;
+    [SerializeField] private GameObject victoryCanvas;
+    [SerializeField] private TextMeshProUGUI victoryScoreText;
+    [SerializeField] private int scoreToWin = 500;
     public TextMeshProUGUI gameOverScoreText;
+    public TextMeshProUGUI gameWinScoreText;
 
     private int score = 0;
     private bool isGameStarted = false;
@@ -107,7 +110,8 @@ public class GameManagerEndless : MonoBehaviour
     {
         isGameStarted = true;
         score = 0;
-        //UpdateScoreUI();
+        UpdateScoreUI();
+
         PauseMenu.SetActive(false);
         GameOverMenu.SetActive(false);
         Time.timeScale = 1f; // Resume game time
@@ -171,8 +175,30 @@ public class GameManagerEndless : MonoBehaviour
         }
     }
 
+    public int GetScore() => score;
+
+    public void AddScore(int points)
+    {
+        if (!isGameOver)
+        {
+            score += points;
+            UpdateScoreUI();
+        }
+    }
+
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+            scoreText.text =  "" + score;
+        //if (pauseScoreText != null)
+        //    pauseScoreText.text = "" + score;
+        if (gameOverScoreText != null)
+            gameOverScoreText.text = "" + score;
+    }
+
     private void OnEnemyDieHandler()
     {
         activeEnemyCount = Mathf.Max(0, activeEnemyCount - 1);
     }
+
 }
