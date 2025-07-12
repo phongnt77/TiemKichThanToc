@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f8e17d715f95dde4a8093f76ded63c66
+guid: ba4966c280e566d4ea9e6a011b42a754
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8002648876985088123
-    second: Volumn_0
+      213: 6611628893084601919
+    second: BoostHP_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Volumn_0
+      name: BoostHP_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 12
-        width: 122
-        height: 120
+        x: 371
+        y: 432
+        width: 251
+        height: 246
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58700290f31e0f090800000000000000
-      internalID: -8002648876985088123
+      spriteID: f3e4407c27931cb50800000000000000
+      internalID: 6611628893084601919
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Volumn_0: -8002648876985088123
+      BoostHP_0: 6611628893084601919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

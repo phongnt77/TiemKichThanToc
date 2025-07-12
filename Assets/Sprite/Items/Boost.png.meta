@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: f8e17d715f95dde4a8093f76ded63c66
+guid: 544de8f12ecbaf24c85c59892f42cb9b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8002648876985088123
-    second: Volumn_0
+      213: -66238934464334820
+    second: Boost_0
+  - first:
+      213: -1974737729933420000
+    second: Boost_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Volumn_0
+      name: Boost_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 12
-        width: 122
-        height: 120
+        x: 415
+        y: 516
+        width: 241
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58700290f31e0f090800000000000000
-      internalID: -8002648876985088123
+      spriteID: c14f3f04a0ca41ff0800000000000000
+      internalID: -66238934464334820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boost_1
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 389
+        width: 352
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ad1ca4f725894e0800000000000000
+      internalID: -1974737729933420000
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Volumn_0: -8002648876985088123
+      Boost_0: -66238934464334820
+      Boost_1: -1974737729933420000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,12 +19,24 @@ public class PlayerControllerEndLess : MonoBehaviour
 
     [SerializeField]
     private ObjectPoolManager bulletPool;
+
+    private static PlayerControllerEndLess instance;
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         inputActions = new PlayerInputAction();
 
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+        Debug.Log("moveInput performed: " + moveInput);
 
         inputActions.Player.Bullet.performed += ctx => isFiring = true;
         inputActions.Player.Bullet.canceled += ctx => isFiring = false;
@@ -34,8 +46,11 @@ public class PlayerControllerEndLess : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //moveInput = Vector2.zero;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        Debug.Log("Player Position: " + transform.position);
+
     }
 
     // Update is called once per frame
@@ -52,15 +67,27 @@ public class PlayerControllerEndLess : MonoBehaviour
 
     void OnDisable()
     {
-        inputActions.Disable();
+        if (inputActions != null)
+            inputActions.Disable();
     }
 
     void MovePlayer()
     {
-        Vector3 move = new Vector3(moveInput.x, moveInput.y, 0f);
-        transform.position += move * speed * Time.deltaTime;
+        //Vector3 move = new Vector3(moveInput.x, moveInput.y, 0f);
+        //transform.position += move * speed * Time.deltaTime;
 
-        // clamp the player's position to the camera's viewport
+        //// clamp the player's position to the camera's viewport
+        //Vector3 clampedPosition = Camera.main.WorldToViewportPoint(transform.position);
+        //clampedPosition.x = Mathf.Clamp(clampedPosition.x, 0.05f, 0.95f);
+        //clampedPosition.y = Mathf.Clamp(clampedPosition.y, 0.05f, 0.95f);
+        //transform.position = Camera.main.ViewportToWorldPoint(clampedPosition);
+        if (moveInput.magnitude > 0.1f)
+        {
+            Vector3 move = new Vector3(moveInput.x, moveInput.y, 0f);
+            transform.position += move * speed * Time.deltaTime;
+        }
+
+
         Vector3 clampedPosition = Camera.main.WorldToViewportPoint(transform.position);
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, 0.05f, 0.95f);
         clampedPosition.y = Mathf.Clamp(clampedPosition.y, 0.05f, 0.95f);
@@ -102,14 +129,43 @@ public class PlayerControllerEndLess : MonoBehaviour
         //}
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
-            //Die();
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        Debug.Log("Player died");
+        // Thực hiện các hành động khi player chết, ví dụ: hiển thị
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player hit by Enemy");
+            TakeDamage(100);
+        }
+        else if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            Debug.Log("Player hit by Asteroid");
+            TakeDamage(50);
+        }
+        //else if (collision.gameObject.CompareTag("BossMissile"))
+        //{
+        //    TakeDamage(50);
+        //}
+        //else if (collision.gameObject.CompareTag("Laser"))
+        //{
+        //    TakeDamage(50);
+        //}
     }
 }

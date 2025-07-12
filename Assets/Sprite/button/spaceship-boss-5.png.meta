@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f8e17d715f95dde4a8093f76ded63c66
+guid: 4cd2f75ac654569478fb378d72c37a54
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8002648876985088123
-    second: Volumn_0
+      213: 4492082857081255559
+    second: spaceship-boss-5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Volumn_0
+      name: spaceship-boss-5_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 12
-        width: 122
-        height: 120
+        x: 0
+        y: 0
+        width: 713
+        height: 705
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58700290f31e0f090800000000000000
-      internalID: -8002648876985088123
+      spriteID: 78633f5fe85175e30800000000000000
+      internalID: 4492082857081255559
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Volumn_0: -8002648876985088123
+      spaceship-boss-5_0: 4492082857081255559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
