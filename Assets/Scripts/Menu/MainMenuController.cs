@@ -72,7 +72,6 @@ public class MainMenuController : MonoBehaviour
         }
         else if (level.Equals("Easy"))
         {
-            Debug.Log("Easy level is selected.");
             mediumButton.interactable = true;
             hardButton.interactable = false;
         }
