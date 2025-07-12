@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
@@ -13,6 +14,10 @@ public class MainMenuController : MonoBehaviour
     private int currentPage = 1;
 
     public List<GameObject> contentPages;
+
+    public Button mediumButton;
+
+    public Button hardButton;
 
     public void HandleHowToPlayButton()
     {
@@ -54,6 +59,26 @@ public class MainMenuController : MonoBehaviour
         for (int i = 0; i < contentPages.Count; i++)
         {
             contentPages[i].SetActive(i == (currentPage - 1));
+        }
+    }
+
+    public void HandlePlayOptions()
+    {
+        string level = PlayerPrefs.GetString("Level");
+        if (string.IsNullOrEmpty(level))
+        {
+            mediumButton.interactable = false;
+            hardButton.interactable = false;
+        }
+        else if (level.Equals("Easy"))
+        {
+            Debug.Log("Easy level is selected.");
+            mediumButton.interactable = true;
+            hardButton.interactable = false;
+        }
+        else
+        {
+            hardButton.interactable = true;
         }
     }
 

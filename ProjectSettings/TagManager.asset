@@ -12,6 +12,7 @@ TagManager:
   - Bullet
   - Laser
   - Lazer
+  - Item
   layers:
   - Default
   - TransparentFX
