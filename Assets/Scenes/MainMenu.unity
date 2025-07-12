@@ -7667,11 +7667,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27342476f4586034184e8b68b724ad85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousButton: {fileID: 0}
-  nextButton: {fileID: 0}
+  previousButton: {fileID: 201825151}
+  nextButton: {fileID: 2100534305}
   contentPages: []
-  mediumButton: {fileID: 0}
-  hardButton: {fileID: 0}
+  mediumButton: {fileID: 1417456805}
+  hardButton: {fileID: 1798743977}
 --- !u!4 &1526689521
 Transform:
   m_ObjectHideFlags: 0

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class EnemyEasyController : MonoBehaviour
+public class EnemyMediumController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveSpeed = 4f;
     private Rigidbody2D rb;
 
     void Start()

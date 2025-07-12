@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawnerMedium : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
-    [SerializeField] private float _miniumSpawnTime = 1f;
-    [SerializeField] private float _maxSpawnTime = 2f;
+    [SerializeField] private float _miniumSpawnTime = 0.5f;
+    [SerializeField] private float _maxSpawnTime = 1f;
 
     private float _timeUntilSpawn;
 
