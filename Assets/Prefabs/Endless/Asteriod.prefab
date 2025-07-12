@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6096760521049067180}
   - component: {fileID: 1595015697982222410}
   - component: {fileID: 8877290966661527814}
-  - component: {fileID: 5049765911653587926}
+  - component: {fileID: -5982020410430465283}
   m_Layer: 0
   m_Name: Asteriod
-  m_TagString: Enemy
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,8 +138,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &5049765911653587926
-CircleCollider2D:
+--- !u!60 &-5982020410430465283
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -168,12 +168,36 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00000047683716, y: -0.00000011920929}
-  m_Radius: 0.35000002
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.61}
+    newSize: {x: 3.875, y: 1.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.26999998, y: 0.185}
+      - {x: 0.19999999, y: 0.265}
+      - {x: 0.08, y: 0.305}
+      - {x: -0.16, y: 0.305}
+      - {x: -0.34, y: 0.225}
+      - {x: -0.35, y: 0.175}
+      - {x: -0.35, y: -0.105}
+      - {x: -0.34, y: -0.145}
+      - {x: -0.19, y: -0.295}
+      - {x: -0.06, y: -0.305}
+      - {x: 0.28, y: -0.305}
+      - {x: 0.35, y: -0.225}
+      - {x: 0.35, y: 0.065}
+  m_UseDelaunayMesh: 0
 --- !u!1 &8589695150189445864
 GameObject:
   m_ObjectHideFlags: 0

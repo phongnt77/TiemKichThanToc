@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Assets.Scripts.Enless.Enemy;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,10 +8,15 @@ public class GameManagerEndless : MonoBehaviour
     public static GameManagerEndless instance;
 
     [Header("Enemy Prefab Settings")]
-    public GameObject enemyPrefab;
-    public float minInstantiateValue;
-    public float maxInstantiateValue;
-    public float enemyDestroyTime = 5f;
+    [SerializeField]
+    private ObjectPoolManager enemyPool;
+    public Transform enemySpawnPoint;
+    //public float enemyDestroyTime = 5f;
+    public float enemySpeed = 2f;
+    private float enemySpawnTimer = 0f;
+    public float enemySpawnInterval = 2f; // Thời gian giữa các lần spawn enemy
+    private int activeEnemyCount = 0;
+    public int maxEnemyOnScreen = 3; 
 
     [Header("Particle Effects")]
     public GameObject explosionEffect;
@@ -43,6 +49,10 @@ public class GameManagerEndless : MonoBehaviour
     public float asteroidSpawnInterval = 2.0f;
     private float asteroidSpawnTimer = 0.0f;
 
+    [Header("Timer Settings")]
+    private float elapsedTime = 0f;
+    [SerializeField] private TextMeshProUGUI timerText;
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name != "SceneEndLess")
@@ -69,15 +79,28 @@ public class GameManagerEndless : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!isGameOver && isGameStarted)
-        //{
+        // Cập nhật thời gian chơi
+        elapsedTime += Time.deltaTime;
+
+        // Asteroid logic giữ nguyên
         asteroidSpawnTimer += Time.deltaTime;
         if (asteroidSpawnTimer >= asteroidSpawnInterval)
         {
             GetAsteroid();
             asteroidSpawnTimer = 0f;
         }
-        //}
+
+        // Enemy spawn logic mới
+        enemySpawnTimer += Time.deltaTime;
+        if (enemySpawnTimer >= enemySpawnInterval)
+        {
+            int enemyCount = GetEnemyCountByTime(elapsedTime);
+            GetEnemyBatch(enemyCount);
+            enemySpawnTimer = 0f;
+        }
+
+        //quản lý thời gian
+        TimeManagement();
     }
 
     public void StartGame()
@@ -113,5 +136,43 @@ public class GameManagerEndless : MonoBehaviour
         Asteriod asteroid = asteroidPool.GetObject().GetComponent<Asteriod>();
         asteroid.asteroidPool = asteroidPool;
         asteroid.transform.position = asteroidSpawnPoint.position;
+    }
+
+    public void GetEnemyBatch(int number)
+    {
+        for (int i = 0; i < number; i++)
+        {
+            if (activeEnemyCount >= maxEnemyOnScreen)
+                break;
+
+            EnemyControllerEndless enemy = enemyPool.GetObject().GetComponent<EnemyControllerEndless>();
+            enemy.enemyPool = enemyPool;
+
+            enemy.transform.position = enemySpawnPoint.position;
+            enemy.transform.position += new Vector3(i * 2f, 0f, 0f); // Tạo khoảng cách giữa các enemy
+            activeEnemyCount++;
+            enemy.OnEnemyDie = OnEnemyDieHandler; // Gán callback khi enemy die
+        }
+    }
+
+    private int GetEnemyCountByTime(float time)
+    {
+        int count = 3 + Mathf.FloorToInt(time / 30f); // Bắt đầu từ 3, tăng dần
+        return Mathf.Clamp(count, 3, 10); // Giới hạn từ 3 đến 10
+    }
+
+    public void TimeManagement()
+    {
+        if (timerText != null)
+        {
+            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+            int minutes = Mathf.FloorToInt(elapsedTime / 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+    }
+
+    private void OnEnemyDieHandler()
+    {
+        activeEnemyCount = Mathf.Max(0, activeEnemyCount - 1);
     }
 }
