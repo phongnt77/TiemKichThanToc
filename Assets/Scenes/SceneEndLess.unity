@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 624052304}
   m_Layer: 0
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1177,7 +1177,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -970982771
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: e72b5607b24dd3247a7168ad745086fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1198,8 +1198,8 @@ Transform:
   m_GameObject: {fileID: 624052299}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: -74.4, z: 0}
-  m_LocalScale: {x: 11.851546, y: 9.636023, z: 1}
+  m_LocalPosition: {x: -2.4831, y: -72.3286, z: 0}
+  m_LocalScale: {x: 14.148201, y: 12.016707, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 749654843}
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2e221c9d492594cabc2f6936fee763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 30
   fireRate: 0.2
   maxHealth: 100
   currentHealth: 0
@@ -1280,7 +1280,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c2702385c82b44ea7d0826bdde245a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 6656266385071038475, guid: 04bf86b6b9a18d343b25e25c1366b210, type: 3}
+  objectPrefab: {fileID: 4110945446790623712, guid: b82392a4300ce6f438f27e0fa91393c4, type: 3}
   poolSize: 20
 --- !u!1 &776862544
 GameObject:
@@ -2418,7 +2418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228001456}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b0cf434829a9ec4aa80575ec6a7db84, type: 3}
   m_Name: 
@@ -2968,6 +2968,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2124106037}
+  - {fileID: 2032591587}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1719229596
@@ -2982,10 +2983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13521994499f00646b19305cc1a6eb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  minInstantiateValue: 0
-  maxInstantiateValue: 0
-  enemyDestroyTime: 5
+  enemyPool: {fileID: 2032591588}
+  enemySpawnPoint: {fileID: 2032591587}
+  enemySpeed: 2
+  enemySpawnInterval: 2
+  maxEnemyOnScreen: 3
   explosionEffect: {fileID: 0}
   muzzleFlash: {fileID: 0}
   PauseMenu: {fileID: 0}
@@ -2999,6 +3001,7 @@ MonoBehaviour:
   asteroidSpeed: 12
   asteroidPool: {fileID: 2124106038}
   asteroidSpawnInterval: 3
+  timerText: {fileID: 574285864}
 --- !u!1 &1899057350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3272,6 +3275,52 @@ Transform:
   - {fileID: 2115925974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2032591586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032591587}
+  - component: {fileID: 2032591588}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032591587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032591586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 49.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1719229595}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032591588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032591586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c2702385c82b44ea7d0826bdde245a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 6433493720812537287, guid: a87064b1f2c8ab946b0c696080c01803, type: 3}
+  poolSize: 10
 --- !u!1 &2091835198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3410,6 +3459,7 @@ GameObject:
   - component: {fileID: 2115925974}
   - component: {fileID: 2115925973}
   - component: {fileID: 2115925975}
+  - component: {fileID: 2115925976}
   m_Layer: 0
   m_Name: ParallaxLayer1
   m_TagString: Untagged
@@ -3501,6 +3551,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+--- !u!60 &2115925976
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115925972}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 40.96, y: 40.96}
+    newSize: {x: 40.96, y: 40.96}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -20.48, y: 20.48}
+      - {x: -20.48, y: -20.48}
+      - {x: 20.48, y: -20.48}
+      - {x: 20.48, y: 20.48}
+  m_UseDelaunayMesh: 0
 --- !u!1 &2124106035
 GameObject:
   m_ObjectHideFlags: 0
