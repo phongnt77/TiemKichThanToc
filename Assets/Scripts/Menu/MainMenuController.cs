@@ -22,6 +22,7 @@ public class MainMenuController : MonoBehaviour
     public void HandleHowToPlayButton()
     {
         previousButton.interactable = false;
+        nextButton.interactable = true;
     }
 
     public void HandleNextPage()
@@ -105,7 +106,7 @@ public class MainMenuController : MonoBehaviour
     public void HandleQuitButton()
     {
         UnityEditor.EditorApplication.isPlaying = false;
-
+        PlayerPrefs.DeleteKey("Level");
         // If running in application build use
         // Application.Quit();
     }
