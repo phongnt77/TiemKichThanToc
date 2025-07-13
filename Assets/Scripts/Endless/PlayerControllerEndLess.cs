@@ -143,6 +143,10 @@ public class PlayerControllerEndLess : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        if (GameManagerEndless.instance != null)
+        {
+            GameManagerEndless.instance.GameOver();
+        }
         Debug.Log("Player died");
         // Thực hiện các hành động khi player chết, ví dụ: hiển thị
     }
@@ -159,10 +163,10 @@ public class PlayerControllerEndLess : MonoBehaviour
             Debug.Log("Player hit by Asteroid");
             TakeDamage(50);
         }
-        //else if (collision.gameObject.CompareTag("BossMissile"))
-        //{
-        //    TakeDamage(50);
-        //}
+        else if (collision.gameObject.CompareTag("BossMissile"))
+        {
+            TakeDamage(50);
+        }
         //else if (collision.gameObject.CompareTag("Laser"))
         //{
         //    TakeDamage(50);

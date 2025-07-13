@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cd3d1e5c1a36df74a91db39d291830f1
+guid: 669d15d7933e06c4ea40ae1d29e3beb2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2323814186206038319
-    second: spaceship-boss-4_0
+      213: 6369560137522551622
+    second: WinNotify_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spaceship-boss-4_0
+      name: WinNotify_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 351
-        height: 382
+        x: 354
+        y: 456
+        width: 284
+        height: 281
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2903d4b0b8df3020800000000000000
-      internalID: 2323814186206038319
+      spriteID: 64b158c9239356850800000000000000
+      internalID: 6369560137522551622
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      spaceship-boss-4_0: 2323814186206038319
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

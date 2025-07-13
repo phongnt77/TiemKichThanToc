@@ -103,10 +103,10 @@ TextureImporter:
       name: Bullet9_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 49
-        height: 18
+        x: 3
+        y: 6
+        width: 17
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 171ad15f409663c4cb058c406d413694
     internalID: 0
     vertices: []
     indices: 
