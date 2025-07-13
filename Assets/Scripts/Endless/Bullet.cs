@@ -3,6 +3,8 @@
 public class Bullet : MonoBehaviour
 {
     public float speed = 25f;
+    [SerializeField] public static int damage = 40;
+
     [HideInInspector] 
     public ObjectPoolManager bulletPool;
   
@@ -34,7 +36,7 @@ public class Bullet : MonoBehaviour
         }
         else if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Bullet hit Asteroid");
+            Debug.Log("Bullet hit Enemy");
             if (GameManagerEndless.instance?.explosionEffect != null)
             {
                 GameObject explosion = Instantiate(GameManagerEndless.instance.explosionEffect, transform.position, Quaternion.identity);
@@ -75,8 +77,17 @@ public class Bullet : MonoBehaviour
             }
             bulletPool.ReturnObject(gameObject);
         }
+        else if (other.CompareTag("Boss"))
+        {
+            Debug.Log("Bullet hit Boss");
+            if (GameManagerEndless.instance != null)
+            {
+                GameManagerEndless.instance.AddScore(30);
+            }
+            bulletPool.ReturnObject(gameObject);
+        }
 
-        
+
     }
 
 }

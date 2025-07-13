@@ -35,9 +35,9 @@ namespace Assets.Scripts.Enless.Enemy
 
             spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
 
-            float pushX = Random.Range(-1f, 1f);
-            float pushY = Random.Range(-1f, 1f);
-            rb.linearVelocity = new Vector2(pushX, pushY) * 1f;
+            //float pushX = Random.Range(-1f, 1f);
+            //float pushY = Random.Range(-1f, 1f);
+            //rb.linearVelocity = new Vector2(pushX, pushY) * 1f;
 
             shootTimer = shootInterval;
         }
@@ -56,6 +56,7 @@ namespace Assets.Scripts.Enless.Enemy
             if (viewPos.y > 1.1f || viewPos.y < -0.1f || viewPos.x > 1.1f || viewPos.x < -0.1f)
             {
                 enemyPool.ReturnObject(gameObject);
+                OnEnemyDie?.Invoke();
             }
         }
 
@@ -126,6 +127,11 @@ namespace Assets.Scripts.Enless.Enemy
                 enemyPool.ReturnObject(gameObject);
 
                 OnEnemyDie?.Invoke();// Gọi callback khi enemy die
+            }
+            else if (other.gameObject.CompareTag("Enemy"))
+            {
+                Vector2 direction = (transform.position - other.transform.position).normalized;
+                transform.position += (Vector3)direction * 1f; // dịch nhẹ ra ngoài mỗi frame
             }
         }
     }
