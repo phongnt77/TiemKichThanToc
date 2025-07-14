@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 
-public class MediumManager : MonoBehaviour
+public class HardManager : MonoBehaviour
 {
-    public static MediumManager Instance;
+    public static HardManager Instance;
 
     public int score = 0;
 

@@ -1,17 +1,14 @@
 using UnityEngine;
 
-public class BackgroundLooper : MonoBehaviour
+public class BackgroundScroll : MonoBehaviour
 {
-    public float scrollSpeed = 2f;
-    public float backgroundHeight = 10f;
+    public float scrollSpeed;
 
-    void Update()
+    [SerializeField]
+    private Renderer backgroundRenderer;
+
+    private void Update()
     {
-        transform.Translate(Vector3.down * scrollSpeed * Time.deltaTime);
-
-        if (transform.position.y < -backgroundHeight)
-        {
-            transform.position += new Vector3(0, backgroundHeight * 2, 0);
-        }
+        backgroundRenderer.material.mainTextureOffset += new Vector2(0f, scrollSpeed * Time.deltaTime);
     }
 }
