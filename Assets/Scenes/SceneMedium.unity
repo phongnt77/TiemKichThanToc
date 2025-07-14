@@ -5416,7 +5416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.2
-  backgroundHeight: 10
+  backgroundRenderer: {fileID: 2017738182}
 --- !u!1 &2019629008
 GameObject:
   m_ObjectHideFlags: 0
