@@ -27,7 +27,7 @@ public class BossBulletEndless : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerController>()?.TakeDamage(damage);
+            collision.GetComponent<PlayerControllerEndLess>()?.TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (collision.CompareTag("Missile"))

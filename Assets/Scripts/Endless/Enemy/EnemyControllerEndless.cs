@@ -96,7 +96,7 @@ namespace Assets.Scripts.Enless.Enemy
             if (other.gameObject.CompareTag("Player"))
             {
                 // Gây damage cho Player
-                PlayerController player = other.GetComponent<PlayerController>();
+                PlayerControllerEndLess player = other.GetComponent<PlayerControllerEndLess>();
                 if (player != null)
                 {
                     player.TakeDamage(100); // Số damage tuỳ chỉnh
