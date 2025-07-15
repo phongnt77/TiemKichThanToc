@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4446958631866814095
+--- !u!1 &5226780639349452805
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1100061283067018650}
+  - component: {fileID: 7285023050115931686}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: BossBullet
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1100061283067018650
+--- !u!4 &7285023050115931686
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4446958631866814095}
+  m_GameObject: {fileID: 5226780639349452805}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.262, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4948561808323333674}
   - component: {fileID: 3162991683120771677}
   - component: {fileID: 5870063591389855654}
-  - component: {fileID: 8947778910270250957}
+  - component: {fileID: -593010297597897432}
   m_Layer: 0
   m_Name: BossMedium
   m_TagString: Boss
@@ -64,7 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1100061283067018650}
+  - {fileID: 7285023050115931686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4948561808323333674
@@ -195,7 +195,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.4461539, y: 2.4461539}
   m_EdgeRadius: 0
---- !u!114 &8947778910270250957
+--- !u!114 &-593010297597897432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,10 +204,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7786772079151599422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af56e962c86d8a848b1404e65e7ad037, type: 3}
+  m_Script: {fileID: 11500000, guid: 165862ab285bea44b9e6d0395468c152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  maxHealth: 15000
+  maxHealth: 10000
   explosionEffect: {fileID: 6897467658286865324, guid: 8206f55c06eac8a4982a443fe317a5fe, type: 3}
   explosionSound: {fileID: 8300000, guid: c9ca6b5c1fcd0b0468db93aaa7204292, type: 3}

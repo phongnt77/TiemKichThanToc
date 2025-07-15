@@ -11,9 +11,13 @@ TagManager:
   - Boss
   - BossMissile
   - BulletEnemy
+<<<<<<< Updated upstream
   - Projectile
   - HealthBarBoss
   - BossHealthBar
+=======
+  - BossBullet
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
