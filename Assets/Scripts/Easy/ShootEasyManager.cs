@@ -19,7 +19,18 @@ public class ShootEasyManager : MonoBehaviour
                 Destroy(tempAudio, 0.8f);
             }
             GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
-            Destroy(bullet, 1f);
+            bullet.AddComponent<AutoBulletDestroyWhenOffscreen>();
+        }
+    }
+    public class AutoBulletDestroyWhenOffscreen : MonoBehaviour
+    {
+        void Update()
+        {
+            Vector3 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+            if (viewportPos.y > 1)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -1961,7 +1961,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1267134493}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: HandlePlayButtonForGameOver
+        m_MethodName: HandlePlayButtonForGameOverMedium
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2325,18 +2325,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1267134492}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3751,7 +3739,6 @@ GameObject:
   - component: {fileID: 1197276114}
   - component: {fileID: 1197276113}
   - component: {fileID: 1197276112}
-  - component: {fileID: 1197276111}
   - component: {fileID: 1197276110}
   m_Layer: 5
   m_Name: Canvas_Dynamic
@@ -3795,18 +3782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 1550611640}
---- !u!114 &1197276111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197276108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b0cf434829a9ec4aa80575ec6a7db84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1197276112
 MonoBehaviour:
   m_ObjectHideFlags: 0

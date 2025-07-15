@@ -56,4 +56,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("SceneHard");
     }
+
+    public void HandlePlayButtonForGameOverHard()
+    {
+        SceneManager.LoadScene("SceneHard");
+    }
 }
