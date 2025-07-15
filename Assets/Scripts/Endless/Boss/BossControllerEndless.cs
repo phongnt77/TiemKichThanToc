@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class BossControllerEndless : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class BossControllerEndless : MonoBehaviour
     [SerializeField] private float shootInterval = 2f;
     [SerializeField] private float shootCircleInterval = 15f;
 
+    [Header("Movement Settings")]
+    [SerializeField] private Vector2 targetPosition = new Vector2(0.75f, 30.1f);
+    [SerializeField] private float moveSpeed = 5f;
+    private bool hasReachedTarget = false;
+
     private float shootTimer = 0f;
     private float shootCircleTimer = 0f;
 
@@ -34,6 +40,16 @@ public class BossControllerEndless : MonoBehaviour
 
     void Update()
     {
+        if (!hasReachedTarget)
+        {
+            // Di chuyển về vị trí đích
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, targetPosition) <= 0.01f)
+            {
+                hasReachedTarget = true;
+            }
+        }
         shootTimer -= Time.deltaTime;
         shootCircleTimer -= Time.deltaTime;
 
@@ -47,6 +63,7 @@ public class BossControllerEndless : MonoBehaviour
         {
             ShootCircle(0f);   // Bắn vòng 1
             ShootCircle(22.5f); // Bắn vòng 2 lệch 22.5 độ
+            ShootCircle(35.5f);
             shootCircleTimer = shootCircleInterval;
         }
     }
@@ -131,11 +148,12 @@ public class BossControllerEndless : MonoBehaviour
             Destroy(collision.gameObject);
         } else if (collision.CompareTag("Player"))
         {
-            PlayerControllerEndLess player = collision.GetComponent<PlayerControllerEndLess>();
-            if (player != null)
-            {
-                player.TakeDamage(10);
-            }
+            //PlayerControllerEndLess player = collision.GetComponent<PlayerControllerEndLess>();
+            //if (player != null)
+            //{
+            //    player.TakeDamage(10);
+            //}
+            Destroy(collision.gameObject);
         }
     }
 }

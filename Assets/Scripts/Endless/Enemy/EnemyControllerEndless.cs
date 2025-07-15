@@ -97,10 +97,10 @@ namespace Assets.Scripts.Enless.Enemy
             {
                 // Gây damage cho Player
                 PlayerControllerEndLess player = other.GetComponent<PlayerControllerEndLess>();
-                if (player != null)
-                {
-                    player.TakeDamage(100); // Số damage tuỳ chỉnh
-                }
+                //if (player != null)
+                //{
+                //    player.TakeDamage(50); // Số damage tuỳ chỉnh
+                //}
 
                 // Tạo hiệu ứng nổ nếu có
                 //if (GameManager.instance?.explosionEffect != null)
