@@ -11,6 +11,9 @@ TagManager:
   - Boss
   - BossMissile
   - BulletEnemy
+  - Projectile
+  - HealthBarBoss
+  - BossHealthBar
   layers:
   - Default
   - TransparentFX

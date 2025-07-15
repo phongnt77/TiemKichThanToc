@@ -2184,7 +2184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839206895}
-  - component: {fileID: 839206894}
+  - component: {fileID: 839206896}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -2192,21 +2192,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &839206894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839206893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2c1e747e267ff4181de0a94f92550f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 1870722729745606054, guid: 8552faeb3d55fc946bef0c13f1a3d73a, type: 3}
-  _miniumSpawnTime: 0.5
-  _maxSpawnTime: 1
 --- !u!4 &839206895
 Transform:
   m_ObjectHideFlags: 0
@@ -2222,6 +2207,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839206896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839206893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4451246dd2ea0848a114840315d07aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 1870722729745606054, guid: 8552faeb3d55fc946bef0c13f1a3d73a, type: 3}
+  _miniumSpawnTime: 0.5
+  _maxSpawnTime: 1
 --- !u!1 &869629512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2233,7 @@ GameObject:
   - component: {fileID: 869629514}
   - component: {fileID: 869629515}
   m_Layer: 0
-  m_Name: BossSpawnerMedium
+  m_Name: BossSpawnerHard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2267,6 +2267,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 7786772079151599422, guid: a4619e8869968594e957c523e73d7a6a, type: 3}
+  bossPrefab2: {fileID: 7786772079151599422, guid: e372374728051f14c9349c737e0759b4, type: 3}
+  bossHealthBarPrefab1: {fileID: 8172450293694357138, guid: cf4257393e5abf840b2b1dc15fac3c03, type: 3}
+  bossHealthBarPrefab2: {fileID: 4070626402211771883, guid: 1d2af81b43ec68a4bbfa5fb6917efddb, type: 3}
+  canvas: {fileID: 1553389669}
+  enemySpawner: {fileID: 839206896}
 --- !u!1 &873511094
 GameObject:
   m_ObjectHideFlags: 0

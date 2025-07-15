@@ -14,6 +14,9 @@ public class HardManager : MonoBehaviour
     [SerializeField] private GameObject victoryCanvas;
     [SerializeField] private TextMeshProUGUI victoryScoreText;
 
+    private int bossDefeated = 0;
+    private int totalBoss = 2;
+
     void Awake()
     {
         if (Instance == null)
@@ -33,6 +36,16 @@ public class HardManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = score.ToString();
+        }
+    }
+
+    // Hàm này ???c g?i khi 1 boss b? tiêu di?t
+    public void OnBossDefeated()
+    {
+        bossDefeated++;
+        if (bossDefeated >= totalBoss)
+        {
+            WinGame();
         }
     }
 
