@@ -42,6 +42,14 @@ public class EnemySpawnerHard : MonoBehaviour
         enemy.AddComponent<AutoDestroyWhenOffscreen>();
     }
 
+    // Hàm tăng độ khó: giảm thời gian spawn để enemy xuất hiện nhiều hơn
+    public void IncreaseDifficulty()
+    {
+        _miniumSpawnTime = Mathf.Max(0.1f, _miniumSpawnTime - 0.15f);
+        _maxSpawnTime = Mathf.Max(0.2f, _maxSpawnTime - 0.2f);
+        Debug.Log("[EnemySpawnerHard] Đã tăng độ khó: min = " + _miniumSpawnTime + ", max = " + _maxSpawnTime);
+    }
+
     public class AutoDestroyWhenOffscreen : MonoBehaviour
     {
         void Update()
