@@ -27,7 +27,7 @@ public class EnemyBullet : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Gây damage cho player nếu cần
-            other.GetComponent<PlayerControllerEndLess>()?.TakeDamage(damage);
+            //other.GetComponent<PlayerControllerEndLess>()?.TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("Missile"))

@@ -156,20 +156,25 @@ public class PlayerControllerEndLess : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Player hit by Enemy");
-            TakeDamage(100);
+            TakeDamage(50);
         }
         else if (collision.gameObject.CompareTag("Asteroid"))
         {
             Debug.Log("Player hit by Asteroid");
-            TakeDamage(50);
+            TakeDamage(10);
+        }
+        else if (collision.gameObject.CompareTag("BulletEnemy"))
+        {
+            Debug.Log("Player hit by BulletEnemy");
+            TakeDamage(15);
         }
         else if (collision.gameObject.CompareTag("BossMissile"))
         {
-            TakeDamage(50);
+            TakeDamage(20);
         }
-        //else if (collision.gameObject.CompareTag("Laser"))
-        //{
-        //    TakeDamage(50);
-        //}
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            TakeDamage(100);
+        }
     }
 }
