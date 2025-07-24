@@ -90,15 +90,21 @@ public class MainMenuController : MonoBehaviour
 
     public void HandleEasyButton()
     {
-        SceneManager.LoadScene("SceneEasy");
+        LoadingData.SceneToLoad = "SceneEasy";
+        SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("SceneEasy");
     }
     public void HandleMediumButton()
     {
-        SceneManager.LoadScene("SceneMedium");
+        LoadingData.SceneToLoad = "SceneMedium";
+        SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("SceneMedium");
     }
     public void HandleHardButton()
     {
-        SceneManager.LoadScene("SceneHard");
+        LoadingData.SceneToLoad = "SceneHard";
+        SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("SceneHard");
     }
     public void HandleEndlessButton()
     {

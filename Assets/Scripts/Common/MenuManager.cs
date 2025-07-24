@@ -36,29 +36,35 @@ public class MenuManager : MonoBehaviour
     public void HandleHomeButton()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 
     public void HandlePlayButtonForGameOver()
     {
         SceneManager.LoadScene("SceneEasy");
+        Time.timeScale = 1f;
     }
 
     public void HandleNextButton()
     {
         SceneManager.LoadScene("SceneMedium");
+        Time.timeScale = 1f;
     }
     public void HandlePlayButtonForGameOverMedium()
     {
         SceneManager.LoadScene("SceneMedium");
+        Time.timeScale = 1f;
     }
 
     public void HandleNextButtonMedium()
     {
         SceneManager.LoadScene("SceneHard");
+        Time.timeScale = 1f;
     }
 
     public void HandlePlayButtonForGameOverHard()
     {
         SceneManager.LoadScene("SceneHard");
+        Time.timeScale = 1f;
     }
 }
